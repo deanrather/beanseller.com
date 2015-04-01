@@ -63,6 +63,52 @@ $ git checkout gh-pages
 
 <p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
 
+        
+        
+        
+        
+      <div class="grid_8">
+        
+        {% for post in paginator.posts %}
+          <div class="grid_2">
+            <div class="metadate">
+              {{ post.date | date: "%B %d, %Y" }}
+              </div>
+          </div>
+          
+          <div class="grid_5 post">
+            <h3 class="title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+              <div class="postcontent preview">
+                {{ post.excerpt }}
+              </div>
+          </div>
+          
+          <div class="clear"></div>
+        {% endfor %}
+
+        <div class="grid_3" style="margin-left: 170px">
+          <div class="pagination">
+            {% if paginator.previous_page %}
+              <a href="/page/{{ paginator.previous_page }}" class="previous">Previous</a>
+            {% else %}
+              <span class="previous">Previous</span>
+            {% endif %}
+            <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+            {% if paginator.next_page %}
+              <a href="/page/{{ paginator.next_page }}" class="next">Next</a>
+            {% else %}
+              <span class="next ">Next</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="grid_3 sidebar">
+        {% include sideb
+        
+        
+        
+        
 <h3>
 <a id="rather-drive-stick" class="anchor" href="#rather-drive-stick" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
 
